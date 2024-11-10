@@ -41,184 +41,172 @@ class HomeScreen extends StatelessWidget {
           child: Column(
         children: [
           Container(
-            width: 374,
-            height: 28,
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(),
-            child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: double.infinity,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 81,
-                          height: 28,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          decoration: ShapeDecoration(
-                            color: Color(0xFF180E19),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'For You',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontFamily: 'SF Pro',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                  letterSpacing: -0.17,
-                                ),
-                              ),
-                            ],
+            margin: const EdgeInsets.only(top: 16, bottom: 16),
+            child: SizedBox(
+                height: 28, // Tinggi dari ListView
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Container(
+                        width: 81,
+                        height: 28,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 4),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFF180E19),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Container(
-                          width: 55,
-                          height: 28,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          decoration: ShapeDecoration(
-                            color: Color(0xFFEEEEEE),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Top',
-                                style: TextStyle(
-                                  color: Color(0xFF909090),
-                                  fontSize: 14,
-                                  fontFamily: 'SF Pro',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                  letterSpacing: -0.17,
-                                ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'For You',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w500,
+                                height: 0.10,
+                                letterSpacing: -0.17,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 55,
+                        height: 28,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 4),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFEEEEEE),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Container(
-                          width: 84,
-                          height: 28,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFEEEEEE),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Ekonomi',
-                                style: TextStyle(
-                                  color: Color(0xFF909090),
-                                  fontSize: 14,
-                                  fontFamily: 'SF Pro',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                  letterSpacing: -0.17,
-                                ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Top',
+                              style: TextStyle(
+                                color: Color(0xFF909090),
+                                fontSize: 14,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w500,
+                                height: 0.10,
+                                letterSpacing: -0.17,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 84,
+                        height: 28,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 4),
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFEEEEEE),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Container(
-                          width: 95,
-                          height: 28,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          decoration: ShapeDecoration(
-                            color: Color(0xFFEEEEEE),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Teknologi',
-                                style: TextStyle(
-                                  color: Color(0xFF909090),
-                                  fontSize: 14,
-                                  fontFamily: 'SF Pro',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                  letterSpacing: -0.17,
-                                ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Ekonomi',
+                              style: TextStyle(
+                                color: Color(0xFF909090),
+                                fontSize: 14,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w500,
+                                height: 0.10,
+                                letterSpacing: -0.17,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 95,
+                        height: 28,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 4),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFEEEEEE),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Container(
-                          width: 95,
-                          height: 28,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          decoration: ShapeDecoration(
-                            color: Color(0xFFEEEEEE),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                          ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Teknologi',
-                                style: TextStyle(
-                                  color: Color(0xFF909090),
-                                  fontSize: 14,
-                                  fontFamily: 'SF Pro',
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.10,
-                                  letterSpacing: -0.17,
-                                ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Teknologi',
+                              style: TextStyle(
+                                color: Color(0xFF909090),
+                                fontSize: 14,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w500,
+                                height: 0.10,
+                                letterSpacing: -0.17,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Container(
+                        width: 95,
+                        height: 28,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 4),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFFEEEEEE),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
                         ),
-                      ],
-                    ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Olahraga',
+                              style: TextStyle(
+                                color: Color(0xFF909090),
+                                fontSize: 14,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w500,
+                                height: 0.10,
+                                letterSpacing: -0.17,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  
-                ]),
-          ),
+                )),
+          )
         ],
       )),
     );
