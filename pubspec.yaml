@@ -1,0 +1,32 @@
+name: proyekakhir
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.14
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/icons/
+  fonts:
+    - family: SFPro
+      fonts:
+        - asset: assets/fonts/sf-pro/SF-Pro-Text-Regular.otf
+        - asset: assets/fonts/sf-pro/SF-Pro-Text-Medium.otf
+          weight: 500
+        - asset: assets/fonts/sf-pro/SF-Pro-Text-Bold.otf
+          weight: 700
+        - asset: assets/fonts/sf-pro/SF-Pro-Text-RegularItalic.otf
+          style: italic
