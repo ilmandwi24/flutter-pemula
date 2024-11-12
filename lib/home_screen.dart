@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(
               Icons.notifications_active_outlined,
-              size: 24,
+              size: 26,
             ),
             onPressed: () {
               // Aksi ketika ikon search ditekan
@@ -229,10 +229,118 @@ class DaftarBeritaContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Text("Hello"),
-    );
+    return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(children: [
+          Card(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              // color: Colors.lightBlueAccent,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                      width: 137,
+                      height: 140,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/cover2.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      // flex: 2,
+
+                      child: Container(
+                        // color: Colors.blue,
+                        padding:
+                            EdgeInsets.zero, // Ensures no additional padding
+
+                        // padding: const EdgeInsets.all(5),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              // color: Colors.yellow,
+                              child: const Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: double
+                                        .infinity, // Takes up the maximum width
+
+                                    height: 70,
+                                    child: Text(
+                                      'Monarch population soars 4,900 percent since last year in thrilling 2021 western migration',
+                                      style: TextStyle(
+                                        color: Color(0xFF180E19),
+                                        fontSize: 14,
+                                        fontFamily: 'SF Pro',
+                                        fontWeight: FontWeight.w700,
+                                        // height: 0.10,
+                                        letterSpacing: -0.17,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'By Andy Corbley',
+                                    style: TextStyle(
+                                      color: Color(0xFF909090),
+                                      fontSize: 13,
+                                      fontFamily: 'SF Pro',
+                                      fontWeight: FontWeight.w500,
+                                      height: 0.13,
+                                      letterSpacing: -0.17,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            const Text(
+                              'World',
+                              style: TextStyle(
+                                color: Color(0xFF69BDFD),
+                                fontSize: 13,
+                                fontFamily: 'SF Pro',
+                                fontWeight: FontWeight.w700,
+                                height: 0,
+                                letterSpacing: -0.17,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )),
+          Container(
+            width: double.infinity,
+            decoration: const ShapeDecoration(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  width: 1,
+                  strokeAlign: BorderSide.strokeAlignCenter,
+                  color: Color(0xFFEEEEEE),
+                ),
+              ),
+            ),
+          ),
+        ]));
     ;
   }
 }

@@ -13,6 +13,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'SFPro',
+        scaffoldBackgroundColor: Colors.white, // Background of the app
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+        )
+
       ),
       home: const HomeScreen(),
     );
