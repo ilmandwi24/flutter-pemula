@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:proyekakhir/detail_screen.dart';
 import 'package:proyekakhir/model/berita.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -43,7 +44,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: const SingleChildScrollView(
           child: Column(
-        children: [CategoriesContainer(), DaftarBeritaContainer()],
+        children: [CategoriesContainer(), DaftarBeritaListContainer()],
       )),
     );
   }
@@ -341,6 +342,147 @@ class DaftarBeritaContainer extends StatelessWidget {
             ),
           ),
         ]));
+    ;
+  }
+}
+
+class DaftarBeritaListContainer extends StatelessWidget {
+  const DaftarBeritaListContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // final List<String> items = List.generate(5, (index) => 'Item ${index + 1}');
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: daftarBerita.length,
+        itemBuilder: (context, index) {
+          final Berita berita = daftarBerita[index];
+          
+          return Column(
+            children: [
+              InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(berita: berita);
+              }));
+              },
+              child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0),
+                  child: Column(children: [
+                Card(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    // color: Colors.lightBlueAccent,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start, // Aligns children to the top
+
+                        children: <Widget>[
+                          Container(
+                            width: 137,
+                            height: 140,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(berita.cover),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            // flex: 2,
+
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              // mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: double
+                                          .infinity, // Takes up the maximum width
+                                
+                                      height: 70,
+                                      child: Text(
+                                        berita.judul,
+                                        style: const TextStyle(
+                                          color: Color(0xFF180E19),
+                                          fontSize: 14,
+                                          fontFamily: 'SF Pro',
+                                          fontWeight: FontWeight.w700,
+                                          // height: 0.10,
+                                          letterSpacing: -0.17,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      'By ${berita.penulis}',
+                                      style: const TextStyle(
+                                        color: Color(0xFF909090),
+                                        fontSize: 13,
+                                        fontFamily: 'SF Pro',
+                                        fontWeight: FontWeight.w500,
+                                        height: 0.13,
+                                        letterSpacing: -0.17,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 43),
+                                Text(
+                                  berita.kategori,
+                                  style: const TextStyle(
+                                    color: Color(0xFF69BDFD),
+                                    fontSize: 13,
+                                    fontFamily: 'SF Pro',
+                                    fontWeight: FontWeight.w700,
+                                    height: 0,
+                                    letterSpacing: -0.17,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )),
+                Container(
+                  width: double.infinity,
+                  decoration: const ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        width: 1,
+                        strokeAlign: BorderSide.strokeAlignCenter,
+                        color: Color(0xFFEEEEEE),
+                      ),
+                    ),
+                  ),
+                ),
+             
+              ]))
+              ),
+              const SizedBox(height: 20),
+            ],
+          );
+        },
+      ),
+    );
     ;
   }
 }
