@@ -42,17 +42,21 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
           child: Column(
-        children: [CategoriesContainer(), DaftarBeritaListContainer()],
+        children: [_CategoryStateful(), const DaftarBeritaListContainer()],
       )),
     );
   }
 }
 
-class CategoriesContainer extends StatelessWidget {
-  const CategoriesContainer({super.key});
+class _CategoryStateful extends StatefulWidget {
+  @override
+  __CategoryStateful createState() => __CategoryStateful();
+}
 
+class __CategoryStateful extends State<_CategoryStateful> {
+  String _category = 'For You';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,160 +68,237 @@ class CategoriesContainer extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  width: 81,
-                  height: 28,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFF180E19),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'For You',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w500,
-                          height: 0.10,
-                          letterSpacing: -0.17,
-                        ),
+                InkWell(
+                  onTap: () {
+                    // Masukkan aksi yang ingin Anda lakukan di sini
+                    setState(() {
+                      _category = 'For You';
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(
+                      40), // Menambahkan efek ripple pada sudut yang melengkung
+                  child: Container(
+                    width: 81,
+                    height: 28,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                    decoration: ShapeDecoration(
+                      color: _category == 'For You'
+                          ? const Color(0xFF180E19)
+                          : const Color(0xFFEEEEEE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'For You',
+                          style: TextStyle(
+                            color: _category == 'For You'
+                                ? Colors.white
+                                : const Color(0xFF909090),
+                            fontSize: 14,
+                            fontFamily: 'SF Pro',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10,
+                            letterSpacing: -0.17,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  width: 55,
-                  height: 28,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFEEEEEE),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Top',
-                        style: TextStyle(
-                          color: Color(0xFF909090),
-                          fontSize: 14,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w500,
-                          height: 0.10,
-                          letterSpacing: -0.17,
-                        ),
+                InkWell(
+                  onTap: () {
+                    // Ganti dengan aksi yang diinginkan, misalnya:
+                    setState(() {
+                      _category =
+                          'Top'; // Mengubah nilai _category menjadi 'Top' ketika ditekan
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(
+                      40), // Menambahkan efek ripple pada sudut yang melengkung
+                  child: Container(
+                    width: 55,
+                    height: 28,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                    decoration: ShapeDecoration(
+                      color: _category == 'Top'
+                          ? const Color(0xFF180E19)
+                          : const Color(0xFFEEEEEE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Top',
+                          style: TextStyle(
+                            color: _category == 'Top'
+                                ? Colors.white
+                                : const Color(0xFF909090),
+                            fontSize: 14,
+                            fontFamily: 'SF Pro',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10,
+                            letterSpacing: -0.17,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  width: 84,
-                  height: 28,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFEEEEEE),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Ekonomi',
-                        style: TextStyle(
-                          color: Color(0xFF909090),
-                          fontSize: 14,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w500,
-                          height: 0.10,
-                          letterSpacing: -0.17,
-                        ),
+                InkWell(
+                  onTap: () {
+                    // Masukkan aksi yang Anda inginkan di sini
+                    setState(() {
+                      _category =
+                          'Ekonomi'; // Mengubah nilai _category menjadi 'Ekonomi' saat ditekan
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(
+                      40), // Membuat efek ripple mengikuti sudut Container
+                  child: Container(
+                    width: 84,
+                    height: 28,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                    decoration: ShapeDecoration(
+                      color: _category == 'Ekonomi'
+                          ? const Color(0xFF180E19)
+                          : const Color(0xFFEEEEEE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Ekonomi',
+                          style: TextStyle(
+                            color: _category == 'Ekonomi'
+                                ? Colors.white
+                                : const Color(0xFF909090),
+                            fontSize: 14,
+                            fontFamily: 'SF Pro',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10,
+                            letterSpacing: -0.17,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  width: 95,
-                  height: 28,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFEEEEEE),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Teknologi',
-                        style: TextStyle(
-                          color: Color(0xFF909090),
-                          fontSize: 14,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w500,
-                          height: 0.10,
-                          letterSpacing: -0.17,
-                        ),
+                InkWell(
+                  onTap: () {
+                    // Masukkan aksi yang Anda inginkan di sini
+                    setState(() {
+                      _category =
+                          'Teknologi'; // Mengubah nilai _category menjadi 'Teknologi' saat ditekan
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(
+                      40), // Menambahkan efek ripple pada sudut yang melengkung
+                  child: Container(
+                    width: 95,
+                    height: 28,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                    decoration: ShapeDecoration(
+                      color: _category == 'Teknologi'
+                          ? const Color(0xFF180E19)
+                          : const Color(0xFFEEEEEE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Teknologi',
+                          style: TextStyle(
+                            color: _category == 'Teknologi'
+                                ? Colors.white
+                                : const Color(0xFF909090),
+                            fontSize: 14,
+                            fontFamily: 'SF Pro',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10,
+                            letterSpacing: -0.17,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  width: 95,
-                  height: 28,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFEEEEEE),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
+                InkWell(
+                  onTap: () {
+                    // Aksi saat kategori "Olahraga" ditekan
+                    setState(() {
+                      _category =
+                          'Olahraga'; // Mengubah nilai _category menjadi 'Olahraga'
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(
+                      40), // Efek ripple mengikuti sudut melengkung
+                  child: Container(
+                    width: 95,
+                    height: 28,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+                    decoration: ShapeDecoration(
+                      color: _category == 'Olahraga'
+                          ? const Color(
+                              0xFF180E19) // Warna latar saat kategori terpilih
+                          : const Color(
+                              0xFFEEEEEE), // Warna latar saat tidak terpilih
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Olahraga',
+                          style: TextStyle(
+                            color: _category == 'Olahraga'
+                                ? Colors.white // Warna teks saat terpilih
+                                : const Color(
+                                    0xFF909090), // Warna teks saat tidak terpilih
+                            fontSize: 14,
+                            fontFamily: 'SF Pro',
+                            fontWeight: FontWeight.w500,
+                            height: 0.10,
+                            letterSpacing: -0.17,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Olahraga',
-                        style: TextStyle(
-                          color: Color(0xFF909090),
-                          fontSize: 14,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w500,
-                          height: 0.10,
-                          letterSpacing: -0.17,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                )
               ],
             ),
           )),
@@ -360,123 +441,124 @@ class DaftarBeritaListContainer extends StatelessWidget {
         itemCount: daftarBerita.length,
         itemBuilder: (context, index) {
           final Berita berita = daftarBerita[index];
-          
+
           return Column(
             children: [
               InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailScreen(berita: berita);
-              }));
-              },
-              child: Padding(
-                  padding: const EdgeInsets.only(bottom: 0),
-                  child: Column(children: [
-                Card(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    // color: Colors.lightBlueAccent,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start, // Aligns children to the top
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return DetailScreen(berita: berita);
+                    }));
+                  },
+                  child: Padding(
+                      padding: const EdgeInsets.only(bottom: 0),
+                      child: Column(children: [
+                        Card(
+                            color: const Color.fromARGB(255, 255, 255, 255),
+                            // color: Colors.lightBlueAccent,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment
+                                    .start, // Aligns children to the top
 
-                        children: <Widget>[
-                          Container(
-                            width: 137,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(berita.cover),
-                                fit: BoxFit.cover,
+                                children: <Widget>[
+                                  Container(
+                                    width: 137,
+                                    height: 140,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(berita.cover),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    // flex: 2,
+
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                              width: double
+                                                  .infinity, // Takes up the maximum width
+
+                                              height: 70,
+                                              child: Text(
+                                                berita.judul,
+                                                style: const TextStyle(
+                                                  color: Color(0xFF180E19),
+                                                  fontSize: 14,
+                                                  fontFamily: 'SF Pro',
+                                                  fontWeight: FontWeight.w700,
+                                                  // height: 0.10,
+                                                  letterSpacing: -0.17,
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              'By ${berita.penulis}',
+                                              style: const TextStyle(
+                                                color: Color(0xFF909090),
+                                                fontSize: 13,
+                                                fontFamily: 'SF Pro',
+                                                fontWeight: FontWeight.w500,
+                                                height: 0.13,
+                                                letterSpacing: -0.17,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 43),
+                                        Text(
+                                          berita.kategori,
+                                          style: const TextStyle(
+                                            color: Color(0xFF69BDFD),
+                                            fontSize: 13,
+                                            fontFamily: 'SF Pro',
+                                            fontWeight: FontWeight.w700,
+                                            height: 0,
+                                            letterSpacing: -0.17,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )),
+                        Container(
+                          width: double.infinity,
+                          decoration: const ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignCenter,
+                                color: Color(0xFFEEEEEE),
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            // flex: 2,
-
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              // mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      width: double
-                                          .infinity, // Takes up the maximum width
-                                
-                                      height: 70,
-                                      child: Text(
-                                        berita.judul,
-                                        style: const TextStyle(
-                                          color: Color(0xFF180E19),
-                                          fontSize: 14,
-                                          fontFamily: 'SF Pro',
-                                          fontWeight: FontWeight.w700,
-                                          // height: 0.10,
-                                          letterSpacing: -0.17,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      'By ${berita.penulis}',
-                                      style: const TextStyle(
-                                        color: Color(0xFF909090),
-                                        fontSize: 13,
-                                        fontFamily: 'SF Pro',
-                                        fontWeight: FontWeight.w500,
-                                        height: 0.13,
-                                        letterSpacing: -0.17,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 43),
-                                Text(
-                                  berita.kategori,
-                                  style: const TextStyle(
-                                    color: Color(0xFF69BDFD),
-                                    fontSize: 13,
-                                    fontFamily: 'SF Pro',
-                                    fontWeight: FontWeight.w700,
-                                    height: 0,
-                                    letterSpacing: -0.17,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
-                Container(
-                  width: double.infinity,
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFFEEEEEE),
-                      ),
-                    ),
-                  ),
-                ),
-             
-              ]))
-              ),
+                        ),
+                      ]))),
               const SizedBox(height: 20),
             ],
           );
